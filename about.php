@@ -5,6 +5,7 @@ require_once __DIR__ . '/includes/functions.php';
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';
 ?>
+
 <main>
     <section class="py-section-gap bg-surface-container-lowest" id="about">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
