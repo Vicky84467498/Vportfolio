@@ -1,0 +1,23 @@
+# Enable Rewrite Engine for clean URLs and front controller support
+RewriteEngine On
+RewriteBase /
+
+# Redirect directory requests to index.php
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^$ index.php [L]
+
+# Prevent direct access to sensitive configuration files
+<FilesMatch "\.(env|json|sql|ini|phar|lock)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Redirect all non-file requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L,QSA]
