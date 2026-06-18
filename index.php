@@ -1,5 +1,6 @@
 <?php
 $page_title = 'Home';
+$page_icon = 'terminal';
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/functions.php';
 $contact_success = false;
@@ -36,7 +37,7 @@ include __DIR__ . '/includes/navbar.php';
                     Building scalable solutions with high-tech precision. Crafting digital experiences where performance meets modern software architecture.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 hero-button-group">
-                    <a class="px-10 py-5 bg-gradient-to-r from-deep-purple to-electric-blue rounded-full text-white font-label-mono font-bold hover:scale-105 transition-all shadow-[0_0_20px_rgba(74,0,224,0.4)] flex items-center justify-center gap-2" href="#contact">
+                    <a class="px-10 py-5 bg-gradient-to-r from-deep-purple to-electric-blue rounded-full text-white font-label-mono font-bold hover:scale-105 transition-all shadow-[0_0_20px_rgba(74,0,224,0.4)] flex items-center justify-center gap-2" href="https://cdn.discordapp.com/attachments/1343939567253717023/1517245489601319084/Vicky_methe.pdf?ex=6a359479&is=6a3442f9&hm=05f2fc091f1c4dea71476aa48fe8ad7c21ccf8bd4b0ddfe9989fe8b1689c49cb&">
                         <span class="material-symbols-outlined">download</span>
                         Download Resume
                     </a>
@@ -109,9 +110,7 @@ include __DIR__ . '/includes/navbar.php';
                     </div>
                 </div>
                 <div class="md:col-span-7 rounded-2xl overflow-hidden glass-card group cursor-pointer relative aspect-video mt-12 md:mt-24">
-                    <div class="w-full h-full bg-surface-container-highest flex items-center justify-center">
-                        <span class="material-symbols-outlined text-6xl text-outline opacity-20">image</span>
-                    </div>
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?php echo htmlspecialchars($projects[1]['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($projects[1]['title'], ENT_QUOTES, 'UTF-8'); ?> illustration">
                     <div class="absolute inset-0 bg-gradient-to-t from-charcoal-black via-transparent to-transparent opacity-60"></div>
                 </div>
                     <div class="md:col-span-5 md:-ml-12 z-10 mt-4 md:mt-16">
@@ -130,9 +129,7 @@ include __DIR__ . '/includes/navbar.php';
                     </div>
                 </div>
                 <div class="md:col-span-7 rounded-2xl overflow-hidden glass-card group cursor-pointer relative aspect-video mt-12 md:mt-24">
-                    <div class="w-full h-full bg-surface-container-highest flex items-center justify-center">
-                        <span class="material-symbols-outlined text-6xl text-outline opacity-20">analytics</span>
-                    </div>
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?php echo htmlspecialchars($projects[2]['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($projects[2]['title'], ENT_QUOTES, 'UTF-8'); ?> illustration">
                     <div class="absolute inset-0 bg-gradient-to-t from-charcoal-black via-transparent to-transparent opacity-60"></div>
                 </div>
                     <div class="md:col-span-5 md:-ml-12 z-10 mt-4 md:mt-16">
@@ -151,9 +148,7 @@ include __DIR__ . '/includes/navbar.php';
                     </div>
                 </div>
                 <div class="md:col-span-7 rounded-2xl overflow-hidden glass-card group cursor-pointer relative aspect-video mt-12 md:mt-24">
-                    <div class="w-full h-full bg-surface-container-highest flex items-center justify-center">
-                        <span class="material-symbols-outlined text-6xl text-outline opacity-20">cloud_sync</span>
-                    </div>
+                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?php echo htmlspecialchars($projects[3]['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($projects[3]['title'], ENT_QUOTES, 'UTF-8'); ?> illustration">
                     <div class="absolute inset-0 bg-gradient-to-t from-charcoal-black via-transparent to-transparent opacity-60"></div>
                 </div>
                     <div class="md:col-span-5 md:-ml-12 z-10 mt-4 md:mt-16">
@@ -280,37 +275,3 @@ include __DIR__ . '/includes/navbar.php';
 </div>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
-
-@keyframes typing {
-    from {
-        max-width: 0;
-    }
-
-    to {
-        max-width: 100%;
-    }
-}
-
-@keyframes blink {
-    from,
-    to {
-        border-color: transparent;
-    }
-
-    50% {
-        border-color: #00D4FF;
-    }
-}
-
-.typing-effect {
-    display: inline-block;
-    width: auto;
-    max-width: 0;
-    overflow: hidden;
-    border-right: 3px solid #00D4FF;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    letter-spacing: 0.1em;
-    animation: typing 3.5s steps(30, end) forwards, blink 0.75s step-end infinite;
-}

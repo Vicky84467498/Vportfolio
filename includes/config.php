@@ -47,19 +47,19 @@ $projects = [
     [
         'title' => 'Enterprise API Gateway',
         'description' => 'A high-performance middleware solution for managing microservices communication with rate limiting, authentication, and monitoring.',
-        'image' => '',
+        'image' => '/assets/images/Enterprice api .png',
         'tags' => ['Laravel', 'Redis', 'Docker']
     ],
     [
         'title' => 'Inventory Intelligence',
         'description' => 'Smart inventory management system with predictive stock analysis and automated supplier integration for retail chains.',
-        'image' => '',
+        'image' => '/assets/images/Invertory.png',
         'tags' => ['PHP 8.2', 'MySQL', 'Chart.js']
     ],
     [
         'title' => 'SaaS Billing Engine',
         'description' => 'A robust subscription management and billing engine supporting multiple payment gateways and complex tax calculations.',
-        'image' => '',
+        'image' => '/assets/images/Saas.png',
         'tags' => ['Stripe API', 'Laravel', 'Vue.js']
     ]
 ];

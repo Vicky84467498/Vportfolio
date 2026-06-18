@@ -107,26 +107,35 @@ document.addEventListener('DOMContentLoaded', function () {
             const message = document.getElementById('message').value.trim();
             const formMessage = document.getElementById('formMessage');
             const submitButton = contactForm.querySelector('button[type="submit"]');
+            // Clear previous field errors
+            clearFieldError('name');
+            clearFieldError('email');
+            clearFieldError('message');
 
             if (!name || name.length < 3) {
-                return showMessage('Name must be at least 3 characters long.', 'error', formMessage);
+                setFieldError('name', 'Name must be at least 3 characters long.');
+                return;
             }
             if (!email || !isValidEmail(email)) {
-                return showMessage('Please enter a valid email address.', 'error', formMessage);
+                setFieldError('email', 'Please enter a valid email address.');
+                return;
             }
             if (!message || message.length < 10) {
-                return showMessage('Message must be at least 10 characters long.', 'error', formMessage);
+                setFieldError('message', 'Message must be at least 10 characters long.');
+                return;
             }
 
             if (submitButton) {
                 submitButton.disabled = true;
+                submitButton.setAttribute('aria-busy', 'true');
+                submitButton.setAttribute('aria-disabled', 'true');
                 const bt = submitButton.querySelector('.btn-text');
                 if (bt) bt.textContent = 'Sending...';
             }
 
             const formData = new FormData(contactForm);
 
-            fetch('includes/send-mail.php', {
+            fetch('/includes/send-mail.php', {
                 method: 'POST',
                 body: formData,
                 headers: { 'X-Requested-With': 'XMLHttpRequest' }
@@ -135,12 +144,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(data => {
                     if (submitButton) {
                         submitButton.disabled = false;
+                        submitButton.removeAttribute('aria-busy');
+                        submitButton.removeAttribute('aria-disabled');
                         const bt = submitButton.querySelector('.btn-text');
                         if (bt) bt.textContent = 'Send Message';
                     }
                     if (data.success) {
                         showMessage(data.message || 'Message sent successfully!', 'success', formMessage);
                         contactForm.reset();
+                        // clear any field error states
+                        clearFieldError('name');
+                        clearFieldError('email');
+                        clearFieldError('message');
                     } else {
                         const text = Array.isArray(data.errors) ? data.errors.join('<br>') : data.message;
                         showMessage(text || 'Unable to send your message right now.', 'error', formMessage);
@@ -149,12 +164,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => {
                     if (submitButton) {
                         submitButton.disabled = false;
+                        submitButton.removeAttribute('aria-busy');
+                        submitButton.removeAttribute('aria-disabled');
                         const bt = submitButton.querySelector('.btn-text');
                         if (bt) bt.textContent = 'Send Message';
                     }
                     showMessage('Error sending message. Please try again later.', 'error', formMessage);
                     console.error('Contact submit error:', error);
                 });
+        });
+
+        // Clear field errors on input
+        ['name', 'email', 'message'].forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', function () { clearFieldError(id); });
+            }
         });
     }
 
@@ -173,5 +198,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 element.style.display = 'none';
             }, 5000);
         }
+    }
+
+    function setFieldError(fieldId, message) {
+        var field = document.getElementById(fieldId);
+        var container = document.getElementById('error-' + fieldId);
+        if (field) field.classList.add('is-invalid');
+        if (container) { container.innerHTML = message; }
+        // also show global message area briefly for assistive tech
+        var formMessage = document.getElementById('formMessage');
+        if (formMessage) { formMessage.innerHTML = message; formMessage.className = 'form-message error show'; formMessage.style.display = 'block'; }
+    }
+
+    function clearFieldError(fieldId) {
+        var field = document.getElementById(fieldId);
+        var container = document.getElementById('error-' + fieldId);
+        if (field) field.classList.remove('is-invalid');
+        if (container) { container.innerHTML = ''; }
+        var formMessage = document.getElementById('formMessage');
+        if (formMessage) { formMessage.classList.remove('show'); formMessage.style.display = 'none'; }
     }
 });

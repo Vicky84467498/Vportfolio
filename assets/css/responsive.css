@@ -30,7 +30,7 @@
         align-items: stretch;
     }
 
-    .hero-button-group > a {
+    .hero-button-group>a {
         width: 100%;
     }
 
@@ -63,5 +63,10 @@
 
     .contact-container {
         padding: 24px 16px;
+    }
+
+    /* Slightly reduce textarea height on narrow screens for better rhythm */
+    textarea {
+        min-height: 120px;
     }
 }

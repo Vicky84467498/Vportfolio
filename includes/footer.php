@@ -50,6 +50,6 @@ $emailLink = $social_links['email'] ?? 'mailto:' . htmlspecialchars(SITE_EMAIL, 
         </div>
     </div>
 </footer>
-<script defer src="./assets/js/script.js"></script>
+<script defer src="/assets/js/script.js"></script>
 </body>
 </html>
