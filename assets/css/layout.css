@@ -36,7 +36,7 @@ header nav a {
     font-size: clamp(40px, 5.5vw, 78px);
     line-height: 1.05;
     max-width: 100%;
-    padding-top: 20px;
+    padding-top: 36px;
     overflow-wrap: break-word;
 }
 
@@ -218,7 +218,3 @@ header nav a {
         line-height: inherit;
     }
 }
-
-<?php <a class="px-10 py-5 bg-gradient-to-r from-deep-purple to-electric-blue rounded-full text-white font-label-mono font-bold hover:scale-105 transition-all shadow-[0_0_20px_rgba(74,0,224,0.4)] flex items-center justify-center gap-2"
-href="/assets/Vicky_Resume.pdf"
-download="Vicky_Resume.pdf"><span class="material-symbols-outlined">download</span>Download Resume </a>?>

@@ -49,16 +49,6 @@ select {
     border-color: #00D4FF;
 }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
-}
-
 @keyframes blink {
 
     from,
@@ -72,12 +62,30 @@ select {
 }
 
 .typing-effect {
-    display: inline-block;
-    overflow: hidden;
-    border-right: 3px solid #00D4FF;
-    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    text-transform: uppercase;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
     letter-spacing: 0.1em;
-    animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite;
+    min-height: 1.2em;
+}
+
+.typing-effect__cursor {
+    display: inline-block;
+    width: 2px;
+    min-height: 1.1em;
+    margin-left: 0.35rem;
+    background-color: #00D4FF;
+    animation: blink 1s step-start infinite;
+}
+
+.typing-effect__text {
+    display: inline;
 }
 
 .scroll-reveal {
@@ -154,9 +162,16 @@ select {
 
 input,
 textarea {
-    color: #e5e2e1;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #000000;
+    /* make typed text visible inside form fields */
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* placeholder text should also be visible */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(0, 0, 0, 0.6);
 }
 
 input:focus,

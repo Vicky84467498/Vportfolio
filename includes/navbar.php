@@ -7,7 +7,6 @@ if (!defined('SITE_NAME')) {
     <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
         <div class="flex items-center gap-3">
             <span class="material-symbols-outlined text-electric-blue" style="font-variation-settings: 'FILL' 1;">terminal</span>
-            <span class="font-display-lg text-headline-md tracking-tighter text-on-surface">PORTFOLIO</span>
         </div>
         <nav class="hidden md:flex gap-8 items-center">
             <a class="font-label-mono text-label-mono text-electric-blue border-b-2 border-electric-blue pb-1" href="index.php#home">Home</a>

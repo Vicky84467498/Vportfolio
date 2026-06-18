@@ -62,6 +62,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    const typingEffect = document.querySelector('.typing-effect[data-text]');
+    if (typingEffect) {
+        const fullText = typingEffect.dataset.text.trim();
+        if (fullText.length) {
+            typingEffect.innerHTML = '<span class="typing-effect__text"></span><span class="typing-effect__cursor" aria-hidden="true"></span>';
+            const textNode = typingEffect.querySelector('.typing-effect__text');
+            let position = 0;
+            const interval = 70;
+            const startDelay = 400;
+            const typeChar = () => {
+                if (position <= fullText.length) {
+                    textNode.textContent = fullText.slice(0, position);
+                    position += 1;
+                    setTimeout(typeChar, interval);
+                }
+            };
+            setTimeout(typeChar, startDelay);
+        }
+    }
+
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', function () {

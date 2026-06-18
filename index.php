@@ -22,7 +22,7 @@ include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';
 ?>
 <main>
-    <section class="relative hero overflow-hidden" id="home">
+    <section class="relative hero overflow-visible" id="home">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 w-full">
             <div class="max-w-3xl">
                 <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-none mb-6">
@@ -30,7 +30,7 @@ include __DIR__ . '/includes/navbar.php';
                     <span class="gradient-text">METHE</span>
                 </h1>
                 <div class="mb-8">
-                    <span class="typing-effect font-label-mono text-label-mono text-electric-blue uppercase">Full Stack PHP Developer</span>
+                    <span class="typing-effect font-label-mono text-label-mono text-electric-blue uppercase" role="text" aria-live="polite" aria-label="FULL STACK PHP DEVELOPER" data-text="FULL STACK PHP DEVELOPER"></span>
                 </div>
                 <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl">
                     Building scalable solutions with high-tech precision. Crafting digital experiences where performance meets modern software architecture.
@@ -280,3 +280,37 @@ include __DIR__ . '/includes/navbar.php';
 </div>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
+
+@keyframes typing {
+    from {
+        max-width: 0;
+    }
+
+    to {
+        max-width: 100%;
+    }
+}
+
+@keyframes blink {
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #00D4FF;
+    }
+}
+
+.typing-effect {
+    display: inline-block;
+    width: auto;
+    max-width: 0;
+    overflow: hidden;
+    border-right: 3px solid #00D4FF;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    letter-spacing: 0.1em;
+    animation: typing 3.5s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
