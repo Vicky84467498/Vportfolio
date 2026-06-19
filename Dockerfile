@@ -1,9 +1,9 @@
-FROM php:8.3-apache
+FROM php:8.3-cli
 
-RUN a2enmod rewrite
+WORKDIR /app
 
-COPY . /var/www/html/
+COPY . .
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+CMD ["php", "-S", "0.0.0.0:80", "-t", "."]
