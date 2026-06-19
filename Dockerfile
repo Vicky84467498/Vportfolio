@@ -1,7 +1,14 @@
-FROM php:8.3-apache
+FROM node:20
 
-RUN a2enmod rewrite
+WORKDIR /app
 
-COPY . /var/www/html/
+COPY package*.json ./
+RUN npm install
 
-EXPOSE 80
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "3000"]
