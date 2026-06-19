@@ -1,10 +1,11 @@
 FROM php:8.3-apache
 
+RUN a2dismod mpm_event || true
+RUN a2enmod mpm_prefork
+
 RUN a2enmod rewrite
 
 COPY . /var/www/html/
-
-RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
 
