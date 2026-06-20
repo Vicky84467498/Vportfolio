@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const headerHeight = document.querySelector('header') ? document.querySelector('header').offsetHeight : 70;
                     const position = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                     window.scrollTo({ top: position, behavior: 'smooth' });
-                    // history.replaceState(null, null, window.location.pathname);
                 }
             }
         });
