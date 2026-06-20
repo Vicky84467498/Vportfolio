@@ -9,10 +9,10 @@ if (!defined('SITE_NAME')) {
             <span class="material-symbols-outlined text-electric-blue" style="font-variation-settings: 'FILL' 1;">terminal</span>
         </div>
         <nav class="hidden md:flex gap-8 items-center">
-            <a class="font-label-mono text-label-mono text-electric-blue border-b-2 border-electric-blue pb-1" href="index.php#home">Home</a>
-            <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-electric-blue transition-colors duration-300" href="index.php#projects">Projects</a>
-            <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-electric-blue transition-colors duration-300" href="index.php#about">About</a>
-            <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-electric-blue transition-colors duration-300" href="index.php#contact">Contact</a>
+            <a class="font-label-mono text-label-mono text-electric-blue border-b-2 border-electric-blue pb-1" href="#home">Home</a>
+            <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-electric-blue transition-colors duration-300" href="#projects">Projects</a>
+            <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-electric-blue transition-colors duration-300" href="#about">About</a>
+            <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-electric-blue transition-colors duration-300" href="#contact">Contact</a>
         </nav>
         <button class="md:hidden text-on-surface" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
             <span class="material-symbols-outlined">menu</span>
@@ -25,25 +25,42 @@ if (!defined('SITE_NAME')) {
         <button class="self-end mb-8" id="close-drawer" aria-label="Close menu">
             <span class="material-symbols-outlined">close</span>
         </button>
-        <a class="flex items-center gap-4 py-4 bg-secondary-container text-on-secondary-container rounded-xl px-4" href="index.php#home">
+        <a class="flex items-center gap-4 py-4 bg-secondary-container text-on-secondary-container rounded-xl px-4" href="#home">
             <span class="material-symbols-outlined">home</span>
             <span class="font-label-mono text-label-mono">Home</span>
         </a>
-        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="index.php#about">
+        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="#about">
             <span class="material-symbols-outlined">person</span>
             <span class="font-label-mono text-label-mono">About</span>
         </a>
-        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="index.php#projects">
+        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="#projects">
             <span class="material-symbols-outlined">code</span>
             <span class="font-label-mono text-label-mono">Projects</span>
         </a>
-        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="index.php#services">
+        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="#services">
             <span class="material-symbols-outlined">terminal</span>
             <span class="font-label-mono text-label-mono">Services</span>
         </a>
-        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="index.php#contact">
+        <a class="flex items-center gap-4 py-4 text-on-surface-variant hover:text-on-surface px-4" href="#contact">
             <span class="material-symbols-outlined">mail</span>
             <span class="font-label-mono text-label-mono">Contact</span>
         </a>
     </div>
 </div>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const headerHeight = document.querySelector('header') ? document.querySelector('header').offsetHeight : 70;
+                const position = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({ top: position, behavior: 'smooth' });
+                history.replaceState(null, null, window.location.pathname); // ← Keeps URL clean!
+            }
+        }
+    });
+});
