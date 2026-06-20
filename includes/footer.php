@@ -20,9 +20,9 @@ $emailLink = $social_links['email'] ?? 'mailto:' . htmlspecialchars(SITE_EMAIL, 
         <div class="md:col-span-2">
             <h5 class="font-label-mono text-electric-blue uppercase mb-6">Navigation</h5>
             <ul class="space-y-4">
-                <li><a class="text-outline hover:text-primary transition-all" href="index.php#home">Home</a></li>
-                <li><a class="text-outline hover:text-primary transition-all" href="index.php#projects">Projects</a></li>
-                <li><a class="text-outline hover:text-primary transition-all" href="index.php#about">About</a></li>
+                <li><a class="text-outline hover:text-primary transition-all" href="#home">Home</a></li>
+                <li><a class="text-outline hover:text-primary transition-all" href="#projects">Projects</a></li>
+                <li><a class="text-outline hover:text-primary transition-all" href="#about">About</a></li>
             </ul>
         </div>
         <div class="md:col-span-2">
