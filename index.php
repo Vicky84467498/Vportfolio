@@ -37,7 +37,7 @@ include __DIR__ . '/includes/navbar.php';
                     Building scalable solutions with high-tech precision. Crafting digital experiences where performance meets modern software architecture.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 hero-button-group">
-                    <a class="px-10 py-5 bg-gradient-to-r from-deep-purple to-electric-blue rounded-full text-white font-label-mono font-bold hover:scale-105 transition-all shadow-[0_0_20px_rgba(74,0,224,0.4)] flex items-center justify-center gap-2" href="https://cdn.discordapp.com/attachments/1343939567253717023/1517245489601319084/Vicky_methe.pdf?ex=6a359479&is=6a3442f9&hm=05f2fc091f1c4dea71476aa48fe8ad7c21ccf8bd4b0ddfe9989fe8b1689c49cb&">
+                    <a class="px-10 py-5 bg-gradient-to-r from-deep-purple to-electric-blue rounded-full text-white font-label-mono font-bold hover:scale-105 transition-all shadow-[0_0_20px_rgba(74,0,224,0.4)] flex items-center justify-center gap-2" href="assets/resume/Vicky.pdf" download>
                         <span class="material-symbols-outlined">download</span>
                         Download Resume
                     </a>
